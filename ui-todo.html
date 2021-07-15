@@ -1,0 +1,98 @@
+<html>
+  <head class="todo-title">
+    <title>My Todo List</title>
+    <link href="./ui-todo.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="main-body">
+      <div class="category-list-container list-flex-container">
+        <div class="list-title-container">
+          <span class="list-title category-list-title">My Todo List</span>
+        </div>
+        <ul class="category-list all-list">
+        </ul>
+
+        <form action="" class="category-form">
+          <button class="addTaskButton">+</button>
+          <input type="text" class="category-list-input typebox" placeholder="add a new category">
+        </form>
+       
+      </div>
+
+      <div class="task-list-container list-flex-container hidden">
+        <div class="list-title-container">
+          <span class="list-title task-list-title">default task List</span>
+        </div>
+        <ul class="task-list all-list">
+        </ul>
+
+        <form action="" class="task-form">
+          <button class="addTaskButton">+</button>
+          <input typy="text" class="task-list-input typeBox" placeholder="add a new task">
+        </form> 
+
+       <div class="divider"></div>
+
+       <div class="bottomBar">
+          <span class="bottomInforSpan">You have 0 todo items.</span>
+          <button class="clear-completed-button select-button">Clear Completed</button>
+          <div class="filter-menu">
+            <div class="select-box-container">
+            
+                <div class="select-box options-container">
+                  <div class="option">
+                      <input type="radio" id="all-tasks" name="filter">
+                      <label for="all-tasks">
+                        <span class="custom-radio"></span>
+                        All
+                      </label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" id="active-tasks" name="filter">
+                    <label for="active-tasks">
+                      <span class="custom-radio"></span>
+                      Active
+                    </label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" id="completed-tasks" name="filter">
+                    <label for="completed-tasks">
+                      <span class="custom-radio"></span>
+                      Completed
+                    </label>
+                  </div>
+
+                </div>
+
+            </div>
+
+            <button class="filters-button select-button">Filters</button>
+          </div>
+
+        </div>
+      </div>
+      
+
+      <template id="category-template">
+        <li class="category-container">
+          <button class="category-delete-button delete-button">X</button>
+        </li>
+      </template>
+
+      <template id="task-template">
+        <li class="task-container">
+          <input type="checkbox">
+          <label>
+            <span class="custom-checkbox"></span>
+          </label>
+          <button class="task-delete-button delete-button">X</button>
+        </li>
+        <div class="divider"></div>
+      </template>
+    </div>
+
+    <script src="./ui-todo.js" type="text/javascript"></script>
+  </body>
+</html>
+
