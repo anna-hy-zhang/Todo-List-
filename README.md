@@ -1,3 +1,3 @@
 # Todo List
 
-[Demo](https://anna-hy-zhang.github.io/todo-list/)
+[view the project here](https://anna-hy-zhang.github.io/todo-list/)
