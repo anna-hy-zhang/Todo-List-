@@ -12,6 +12,7 @@ if (Object.keys(todoListObj).length === 0) {
 
 
 // selectors
+const body = document.querySelector('body');
 const categoryList = document.querySelector('.category-list');
 const categoryTypeBoxInput = document.querySelector('.category-list-input');
 const taskList = document.querySelector('.task-list');
@@ -195,6 +196,7 @@ function renderSelectedTaskList(type) {
     // render related elements
     taskListTitle.innerHTML = todoListObj.category[categoryId].name;
     taskTypeBoxInput.value = "";
+    optionsContainer.querySelector(`#${todoListObj.filter}`).checked = true;
     bottomInforText.innerHTML = `You have ${todoListObj.category[categoryId].activeTaskCount} todo items.`
     updateScrollHeight(taskList, type);
   }
@@ -317,17 +319,22 @@ clearCompletedButton.addEventListener('click', () => {
   renderSelectedTaskList();
 });
 
-filtersButton.addEventListener('click', () => {
-  optionsContainer.classList.toggle('active');
-})
-selectBox.addEventListener('click', (event) => {
-  // console.log('event.target', event.target)
-  if (event.target.tagName === 'SPAN') {
-    return;
+body.addEventListener('click', (event) => {
+  if (event.target.type === 'radio') {
+    const filter = event.target.id;
+    todoListObj.filter = filter;
+    optionsContainer.classList.add('active');
+  } else if (event.target === filtersButton) {
+    optionsContainer.classList.toggle('active');
+  } else if (event.target !== optionsContainer) {
+    if (optionsContainer.classList.contains('active')) {
+      optionsContainer.classList.remove('active');
+    }
   }
-  const filter = event.target.id;
-  renderTaskListByFilter(filter);
-})
+  renderTaskListByFilter(todoListObj.filter);
+});
+
+
 renderForReload(); 
 
 
